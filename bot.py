@@ -55,7 +55,7 @@ async def op(_, m :Message):
                 ]
             )
             add_group(m.chat.id)
-            await m.reply_text("** Hello {}\nwrite me private for more details**")
+            await m.reply_text("** Hello start me private for more details**")
         print(m.from_user.first_name +" Is started Your Bot!")
 
     except UserNotParticipant:
