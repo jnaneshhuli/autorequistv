@@ -29,7 +29,7 @@ async def approve(_, m : Message):
         add_group(m.chat.id)
         await app.approve_chat_join_request(op.id, kk.id)
         img = random.choice(gif)
-        await app.send_video(kk.id,img, "**Hello {} Welcome To {} /start me for more details/n/nall Ott Released Movies join https://t.me/+D7L-rX9lKA43MGRl**".format(m.from_user.mention, m.chat.title))
+        await app.send_video(kk.id,img, "**Hello {} Welcome To {} /start me for more details all Ott Released Movies join https://t.me/+D7L-rX9lKA43MGRl**".format(m.from_user.mention, m.chat.title))
         add_user(kk.id)
     except errors.PeerIdInvalid as e:
         print("user isn't start bot(means group)")
@@ -44,7 +44,7 @@ async def op(_, m :Message):
         await app.get_chat_member(cfg.CHID, m.from_user.id) 
         if m.chat.type == enums.ChatType.PRIVATE:    
             add_user(m.from_user.id)
-            await m.reply_text("**I'm an auto approve [Admin Join Requests]({}) Bot.\nI can approve users in Groups/Channels.Add me to your chat and promote me to admin with add members permission/n/njoin here for New Movie https://t.me/+D7L-rX9lKA43MGRl/n/nBackup channel :- @ROCKERSBACKUP**")
+            await m.reply_text("**I'm an auto approve [Admin Join Requests]({}) Bot.I can approve users in Groups/Channels.Add me to your chat and promote me to admin with add members permission join here for New Movie https://t.me/+D7L-rX9lKA43MGRl Backup channel :- @ROCKERSBACKUP**")
     
         elif m.chat.type == enums.ChatType.GROUP or enums.ChatType.SUPERGROUP:
             keyboar = InlineKeyboardMarkup(
@@ -76,7 +76,7 @@ async def chk(_, cb : CallbackQuery):
         await app.get_chat_member(cfg.CHID, cb.from_user.id)
         if cb.message.chat.type == enums.ChatType.PRIVATE:            
             add_user(cb.from_user.id)
-            await cb.message.edit("**I'm an auto approve [Admin Join Requests]({}) Bot.\nI can approve users in Groups/Channels.Add me to your chat and promote me to admin with add members permission\n\nBackup channel @ROCKERSBACKUP**")
+            await cb.message.edit("**I'm an auto approve [Admin Join Requests]({}) Bot.I can approve users in Groups/Channels.Add me to your chat and promote me to admin with add members permission Backup channel @ROCKERSBACKUP**")
         print(cb.from_user.first_name +" Is started Your Bot!")
     except UserNotParticipant:
         await cb.answer("🙅‍♂️ You are not joined to channel join and try again. 🙅‍♂️")
