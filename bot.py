@@ -29,7 +29,7 @@ async def approve(_, m : Message):
         add_group(m.chat.id)
         await app.approve_chat_join_request(op.id, kk.id)
         img = random.choice(gif)
-        await app.send_video(kk.id,img, "**Hello {} Welcome To {} /start me for more details all 🚀Ott Released Movies join https://t.me/+D7L-rX9lKA43MGRl 🔞18+ Adult video Join:- https://t.me/+Ce98xoyvoLcwYThl**".format(m.from_user.mention, m.chat.title))
+        await app.send_video(kk.id,img, "**<b>Hello {} Welcome To {} /start me for more details all\n\n🔎Ott Released Movies join\nhttps://t.me/+D7L-rX9lKA43MGRl\n\n🔞18+ Adult video\nJoin:- https://t.me/+Ce98xoyvoLcwYThl</b>**".format(m.from_user.mention, m.chat.title))
         add_user(kk.id)
     except errors.PeerIdInvalid as e:
         print("user isn't start bot(means group)")
@@ -62,11 +62,11 @@ async def op(_, m :Message):
         key = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🚦 Check Again 🚦", "chk")
+                    InlineKeyboardButton("🔎 Check Again 🚀", "chk")
                 ]
             ]
         )
-        await m.reply_text("**<b>🛑Access Denied!🛑\n\nPlease Join @{} to use me.If you joined click check again button to confirm.\n ಮೊದಲು @ROCKERSBACKUP ಈ ಚಾನೆಲ್ ಗೆ join ಆಗು ನಂತರ ನೀನು ನನ್ನನ್ನು ಉಪಯೋಗಿಸ ಬವುದು also join here for ott Movies https://t.me/+D7L-rX9lKA43MGRl</b>**".format(cfg.FSUB), reply_markup=key)
+        await m.reply_text("**<b>⚠️Access Denied!⚠️\n\nPlease Join @{} to use me.If you joined click check again button to confirm.\n ಮೊದಲು @ROCKERSBACKUP ಈ ಚಾನೆಲ್ ಗೆ join ಆಗು ನಂತರ ನೀನು ನನ್ನನ್ನು ಉಪಯೋಗಿಸ ಬವುದು\n\nalso join here for ott Movies\nhttps://t.me/+D7L-rX9lKA43MGRl\n\n🔞Adult Videos\nhttps://telegram.me/+Ce98xoyvoLcwYThl</b>**".format(cfg.FSUB), reply_markup=key)
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ callback ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
