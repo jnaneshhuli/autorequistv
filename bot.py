@@ -66,7 +66,7 @@ async def op(_, m :Message):
                 ]
             ]
         )
-        await m.reply_text("**<b>⚠️Access Denied!⚠️\n\nPlease Join @{} to use me.If you joined click check again button to confirm.\n ಮೊದಲು @ROCKERSBACKUP ಈ ಚಾನೆಲ್ ಗೆ join ಆಗು ನಂತರ ನೀನು ನನ್ನನ್ನು ಉಪಯೋಗಿಸ ಬವುದು\n\nalso join here for ott Movies\nhttps://t.me/+D7L-rX9lKA43MGRl\n\n🔞Adult Videos\nhttps://telegram.me/+Ce98xoyvoLcwYThl</b>**".format(cfg.FSUB), reply_markup=key)
+        await m.reply_text("**<b>⚠️Access Denied!⚠️\n\nSubscribe My YouTube channel To Use me\nlink:- https://youtube.com/@Jnentertainment.?si=-xZOdUGBD3yxLjgW\n\nand join @ROCKERSBACKU @{} to use me.If you joined click check again button to confirm.</b>**".format(cfg.FSUB), reply_markup=key)
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ callback ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
