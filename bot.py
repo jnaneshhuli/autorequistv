@@ -29,7 +29,7 @@ async def approve(_, m : Message):
         add_group(m.chat.id)
         await app.approve_chat_join_request(op.id, kk.id)
         img = random.choice(gif)
-        await app.send_video(kk.id,img, "**<b>Hello {}\n\n⚠️Access Denied!⚠️\n\nSubscribe My YouTube channel To Use me\n\nlink:- https://youtube.com/@Jnentertainment.?si=-xZOdUGBD3yxLjgW\n\nand join @ROCKERSBACKU @ROCKERSBACKUP to use me.If you joined click check again button to confirm.</b>**".format(m.from_user.mention, m.chat.title))
+        await app.send_video(kk.id,img, "**<b>Hello {}\n\n⚠️Access Denied!⚠️\n\nSubscribe My channel To Use me\n\n𝐊𝐚𝐧𝐧𝐚𝐝𝐚 𝐇𝐃 𝐌𝐨𝐯𝐢𝐞𝐬\n👉 https://t.me/+4Fxg05W56SVkOTY1\n\n𝐊𝐚𝐧𝐧𝐚𝐝𝐚 𝐎𝐧𝐥𝐢𝐧𝐞 𝐌𝐨𝐯𝐢𝐞𝐬\n👉 https://t.me/+5MMPfVCCiAU5MjU1\n\nBollywood Hindi HD MOVIES\n👉 https://t.me/+sIUMbwiAsIo4Mjll\n\nTamil Telugu Malayalam Movies 🎥\n👉 https://t.me/+hJLWDbymVZsyOTk1\n\nHollywood action movie\n👉 https://t.me/+zHXxf4Y5ve03YThl\n\n18+ Baned Movies A Rated movie Only 🔞\n👉 https://t.me/+GwoURlq-hr1hOTc9\n\n𝐓𝐫𝐞𝐧𝐝𝐢𝐧𝐠 𝐌𝐨𝐯𝐢𝐞𝐬 𝐇𝐃\n👉 https://t.me/+EVHwFEL-OWdlMjM1\n\nSex Video porn video\n👉 https://t.me/+P-wgbt_2dlU3MTM1\n\nMovies 🎥\n👉https://t.me/+LpVX0gNfgEM5ZjE1\n\n©️@ROCKERSBACKUP.If you joined click check again button to confirm.</b>**".format(m.from_user.mention, m.chat.title))
         add_user(kk.id)
     except errors.PeerIdInvalid as e:
         print("user isn't start bot(means group)")
