@@ -5,10 +5,6 @@ from pyrogram.errors.exceptions.flood_420 import FloodWait
 from database import add_user, add_group, all_users, all_groups, users, remove_user
 from configs import cfg
 import random, asyncio
-from aiohttp import web
-from plugins import web_server
-
-PORT = "8000"
 
 app = Client(
     "approver",
@@ -165,7 +161,3 @@ async def fcast(_, m : Message):
 print("I'm Alive Now!")
 app.run()
 
-app = web.AppRunner(await web_server())
-        await app.setup()
-        bind_address = "0.0.0.0"
-        await web.TCPSite(app, bind_address, PORT).start()
