@@ -14,8 +14,8 @@ app = Client(
 )
 
 gif = [    
-    'https://telegra.ph/file/84321ef01763fcb981806.gif',
-    'https://telegra.ph/file/84321ef01763fcb981806.gif'
+    'https://graph.org/file/a8a0e8eb4b05399ef9eec.mp4',
+    'https://graph.org/file/a8a0e8eb4b05399ef9eec.mp4'
 ]
 
 
@@ -29,7 +29,7 @@ async def approve(_, m : Message):
         add_group(m.chat.id)
         await app.approve_chat_join_request(op.id, kk.id)
         img = random.choice(gif)
-        await app.send_video(kk.id,img, "**<b>Hello {}\n\n⚠️Access Denied!⚠️\n\nSubscribe My channel To Use me\n\n𝐊𝐚𝐧𝐧𝐚𝐝𝐚 𝐇𝐃 𝐌𝐨𝐯𝐢𝐞𝐬\n👉 https://t.me/+4Fxg05W56SVkOTY1\n\n𝐊𝐚𝐧𝐧𝐚𝐝𝐚 𝐎𝐧𝐥𝐢𝐧𝐞 𝐌𝐨𝐯𝐢𝐞𝐬\n👉 https://t.me/+5MMPfVCCiAU5MjU1\n\nBollywood Hindi HD MOVIES\n👉 https://t.me/+sIUMbwiAsIo4Mjll\n\nTamil Telugu Malayalam Movies 🎥\n👉 https://t.me/+hJLWDbymVZsyOTk1\n\nHollywood action movie\n👉 https://t.me/+zHXxf4Y5ve03YThl\n\n18+ Baned Movies A Rated movie Only 🔞\n👉 https://t.me/+GwoURlq-hr1hOTc9\n\n𝐓𝐫𝐞𝐧𝐝𝐢𝐧𝐠 𝐌𝐨𝐯𝐢𝐞𝐬 𝐇𝐃\n👉 https://t.me/+EVHwFEL-OWdlMjM1\n\nSex Video porn video\n👉 https://t.me/+P-wgbt_2dlU3MTM1\n\nMovies 🎥\n👉https://t.me/+LpVX0gNfgEM5ZjE1\n\n©️@ROCKERSBACKUP.If you joined click check again button to confirm.</b>**".format(m.from_user.mention, m.chat.title))
+        await app.send_video(kk.id,img, "**<strong>Hello {}  its good to see u again\n\n⚠️Access Denied!⚠️\n\n🍿Subscribe my youtube channel\n\nLink :- https://youtube.com/@Jnentertainment.?si=-xZOdUGBD3yxLjgW\n\nAnd join BOT backupChannel\n\nLINK :- ©️@ROCKERSBACKUP\n\nIf you joined click check again button to confirm.</strong>**".format(m.from_user.mention,m.chat.title))
         add_user(kk.id)
     except errors.PeerIdInvalid as e:
         print("user isn't start bot(means group)")
@@ -44,13 +44,13 @@ async def op(_, m :Message):
         await app.get_chat_member(cfg.CHID, m.from_user.id) 
         if m.chat.type == enums.ChatType.PRIVATE:    
             add_user(m.from_user.id)
-            await m.reply_text("**I'm an auto approve [Admin Join Requests]({}) Bot.I can approve users in Groups/Channels.Add me to your chat and promote me to admin with add members permission join here for New Movie https://t.me/+D7L-rX9lKA43MGRl Backup channel :- @ROCKERSBACKUP**")
+            await m.reply_text("**<strong>I'm an auto approve [Admin Join Requests]({}) Bot.I can approve users in Groups/Channels.Add me to your chat and promote me to admin with add members permission join here for\n\n🍿 New Movie https://t.me/+D7L-rX9lKA43MGRl\n\n🔞 new adult videos https://t.me/+P-wgbt_2dlU3MTM1\n\nBOT BACKUP CHANNEL :- @ROCKERSBACKUP</strong>**")
     
         elif m.chat.type == enums.ChatType.GROUP or enums.ChatType.SUPERGROUP:
             keyboar = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("💁‍♂️ Start me private 💁‍♂️", url="http://t.me/autorequistacceptnewbot?start=start")
+                        InlineKeyboardButton("🍿BOT BACKUP CHANNEL🍿", url="http://t.me/ROCKERSBACKUP")
                     ]
                 ]
             )
@@ -66,7 +66,7 @@ async def op(_, m :Message):
                 ]
             ]
         )
-        await m.reply_text("**<b>Hello {}\n\n⚠️Access Denied!⚠️\n\nSubscribe My channel To Use me\n\n𝐊𝐚𝐧𝐧𝐚𝐝𝐚 𝐇𝐃 𝐌𝐨𝐯𝐢𝐞𝐬\n👉 https://t.me/+4Fxg05W56SVkOTY1\n\n𝐊𝐚𝐧𝐧𝐚𝐝𝐚 𝐎𝐧𝐥𝐢𝐧𝐞 𝐌𝐨𝐯𝐢𝐞𝐬\n👉 https://t.me/+5MMPfVCCiAU5MjU1\n\nBollywood Hindi HD MOVIES\n👉 https://t.me/+sIUMbwiAsIo4Mjll\n\nTamil Telugu Malayalam Movies 🎥\n👉 https://t.me/+hJLWDbymVZsyOTk1\n\nHollywood action movie\n👉 https://t.me/+zHXxf4Y5ve03YThl\n\n18+ Baned Movies A Rated movie Only 🔞\n👉 https://t.me/+GwoURlq-hr1hOTc9\n\n𝐓𝐫𝐞𝐧𝐝𝐢𝐧𝐠 𝐌𝐨𝐯𝐢𝐞𝐬 𝐇𝐃\n👉 https://t.me/+EVHwFEL-OWdlMjM1\n\nSex Video porn video\n👉 https://t.me/+P-wgbt_2dlU3MTM1\n\nMovies 🎥\n👉https://t.me/+LpVX0gNfgEM5ZjE1\n\n©️@ROCKERSBACKUP.If you joined click check again button to confirm.</b>**".format(cfg.FSUB), reply_markup=key)
+        await m.reply_text("**<strong>Hello {}  its good to see u again\n\n⚠️Access Denied!⚠️\n\n🍿Subscribe my youtube channel\n\nLink :- https://youtube.com/@Jnentertainment.?si=-xZOdUGBD3yxLjgW\n\nAnd join BOT backupChannel\n\nLINK :- ©️@ROCKERSBACKUP\n\nIf you joined click check again button to confirm.</strong>**".format(cfg.FSUB), reply_markup=key)
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ callback ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -76,7 +76,7 @@ async def chk(_, cb : CallbackQuery):
         await app.get_chat_member(cfg.CHID, cb.from_user.id)
         if cb.message.chat.type == enums.ChatType.PRIVATE:            
             add_user(cb.from_user.id)
-            await cb.message.edit("**I'm an auto approve [Admin Join Requests]({}) Bot.I can approve users in Groups/Channels.Add me to your chat and promote me to admin with add members permission Backup channel @ROCKERSBACKUP**")
+            await cb.message.edit("**<strong>I'm an auto approve [Admin Join Requests]({}) Bot.I can approve users in Groups/Channels.Add me to your chat and promote me to admin with add members permission join here for\n\n🍿 New Movie https://t.me/+D7L-rX9lKA43MGRl\n\n🔞 new adult videos https://t.me/+P-wgbt_2dlU3MTM1\n\nBOT BACKUP CHANNEL :- @ROCKERSBACKUP</strong>**")
         print(cb.from_user.first_name +" Is started Your Bot!")
     except UserNotParticipant:
         await cb.answer("🙅‍♂️ You are not joined to channel join and try again. 🙅‍♂️")
