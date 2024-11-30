@@ -20,29 +20,26 @@ gif = [
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Approve Join Requests ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-@app.on_chat_join_request(filters.group | filters.channel)
-async def approve_and_notify(_, m: Message):
+@app.on_chat_join_request(filters.group | filters.channel & ~filters.private)
+async def approve(_, m: Message):
     chat = m.chat
     user = m.from_user
-
     try:
-        # Approve the join request
-        await app.approve_chat_join_request(chat.id, user.id)
-        add_user(user.id)  # Add the user to the database for broadcasting
-
-        # Send a confirmation message to the user
-        confirmation_message = f"""
-**Hello {user.mention}, Your request to join {chat.title} has been approved! 🎉**
-
-Subscribe to our YouTube channel for the latest updates:
-👉 [JN Entertainment](https://youtube.com/@Jnentertainment.?si=-xZOdUGBD3yxLjgW)
-
-Don't forget to join our backup channel:
-👉 [@ROCKERSBACKUP](https://t.me/ROCKERSBACKUP)
-"""
-        await app.send_message(user.id, confirmation_message)
+        add_group(chat.id)  # Add group to the database
+        add_user(user.id)   # Add user to the database
+        await app.approve_chat_join_request(chat.id, user.id)  # Approve the request
+        img = random.choice(gif)
+        await app.send_video(
+            user.id,
+            img,
+            f"Hello {user.mention}, your request to join **{chat.title}** has been approved!\n\n"
+            f"📢 **Stay updated with our latest updates**\nJoin our backup channel: @ROCKERSBACKUP"
+        )
     except errors.PeerIdInvalid:
-        print(f"Unable to send message to {user.first_name}. User has not started the bot.")
+        print(f"Cannot send message to {user.id}: PeerIdInvalid.")
+    except errors.UserIsBlocked:
+        print(f"Cannot send message to {user.id}: User has blocked the bot.")
+        remove_user(user.id)  # Clean up database
     except Exception as e:
         print(f"Error in approving join request: {e}")
 
@@ -73,36 +70,34 @@ async def start(_, m: Message):
 
 @app.on_message(filters.command("bcast") & filters.user(cfg.SUDO))
 async def bcast(_, m: Message):
-    # Combine all members (users who started the bot + users who sent join requests)
-    all_members = all_users() + all_groups()
     lel = await m.reply_text("`⚡️ Processing broadcast...`")
-    success = 0
-    failed = 0
-    deactivated = 0
-    blocked = 0
+    success, failed, blocked, deactivated = 0, 0, 0, 0
 
-    for member_id in all_members:
+    for user in users.find():  # Correctly iterate through the database collection
         try:
-            await m.reply_to_message.copy(int(member_id))  # Send a copy of the original message
+            user_id = int(user["user_id"])  # Extract user_id
+            await m.reply_to_message.copy(user_id)
             success += 1
-        except FloodWait as ex:
-            await asyncio.sleep(ex.value)  # Handle rate limits
-            await m.reply_to_message.copy(int(member_id))
+        except FloodWait as e:
+            await asyncio.sleep(e.value)
+            await m.reply_to_message.copy(user_id)
+            success += 1
         except errors.InputUserDeactivated:
             deactivated += 1
-            remove_user(member_id)  # Remove deactivated users
+            remove_user(user_id)  # Remove deactivated user from database
         except errors.UserIsBlocked:
-            blocked += 1  # Handle users who blocked the bot
+            blocked += 1
+            remove_user(user_id)  # Remove blocked user from database
         except Exception as e:
-            print(f"Failed to send message to {member_id}: {e}")
             failed += 1
+            print(f"Failed to send to {user_id}: {e}")
 
-    await lel.edit(f"""
-✅ Successfully broadcast to `{success}` members.
-❌ Failed to `{failed}` members.
-👾 Blocked: `{blocked}` users.
-👻 Deactivated: `{deactivated}` users.
-""")
+    await lel.edit(
+        f"✅ Broadcast successful to `{success}` users.\n"
+        f"❌ Failed: `{failed}`\n"
+        f"🚫 Blocked: `{blocked}`\n"
+        f"👻 Deactivated: `{deactivated}`"
+    )
 
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Forward Broadcast ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
